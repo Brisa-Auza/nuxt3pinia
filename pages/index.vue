@@ -1,7 +1,7 @@
 <template>
   <v-app
     style="
-      background: url('/fondo3.jpg') no-repeat;
+      background: url('/fondo5.PNG') no-repeat;
       background-size: cover;
       overflow: hidden;
       width: 100%;
@@ -11,153 +11,54 @@
       flex-flow: row;
     "
   >
-    <v-dialog v-model="dialog" width="500">
-      <v-card>
-        <v-card-title class="text-h4">
-          {{ msj1 }}
-        </v-card-title>
+    <div style="position: relative; left: 20%; top: 20%">
+      <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="448" rounded="lg">
+        <div class="text-subtitle-1 text-medium-emphasis">Usuario :D</div>
 
-        <v-card-text class="text-h6 text-center">
-          {{ tik }}
-        </v-card-text>
+        <v-text-field
+          density="compact"
+          placeholder="Usuario"
+          prepend-inner-icon="mdi-account"
+          variant="outlined"
+          v-model="usuario.username"
+        ></v-text-field>
 
-        <v-divider></v-divider>
+        <div
+          class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+        >
+          Contraseña
+        </div>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="reset" @keyup.esc="reset"> Cerrar </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-    <v-dialog v-model="carga" width="500">
-      <v-card>
-        <v-card-text class="text-h6 text-center">
-          <v-progress-circular
-            :size="70"
-            :width="7"
-            indeterminate
-            color="purple"
-          ></v-progress-circular>
-          <h3>Cargando por favor espere..</h3>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
-    <v-row
-      cols="6"
-      sm="6"
-      md="6"
-      height="auto"
-      class="pa-4 rounded-xl"
-      style="position: relative; top: 15%; left: 27%"
-    >
-      <v-col style="max-width: 40%">
-        <center>
-          <img
-            :width="150"
-            :height="150"
-            style="margin-bottom: -47px"
-            cover
-            :src="logosteel"
-          />
-        </center>
-        <v-card style="background-color: rgb(0 0 0)">
-          <v-card-text
-            style="
-              background: rgba(0, 0, 0, 0.64);
-              border-radius: 8px;
-              box-shadow: rgba(0, 0, 0, 3) 0px 0px 107px;
-            "
-          >
-            <v-form ref="form">
-              <v-text-field
-                label="Usuario"
-                prepend-icon="mdi-account"
-                v-model="usuario.username"
-                cols="6"
-              >
-              </v-text-field>
-              <v-text-field
-                label="Contraseña"
-                :type="show1 ? 'text' : 'password'"
-                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append="show1 = !show1"
-                prepend-icon="mdi-lock"
-                cols="6"
-                v-model="usuario.password"
-                @keyup.enter="enviarL"
-              >
-              </v-text-field>
-              <v-input> </v-input>
-            </v-form>
+        <v-text-field
+          :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+          :type="visible ? 'text' : 'password'"
+          density="compact"
+          placeholder="Contraseña"
+          prepend-inner-icon="mdi-lock-outline"
+          variant="outlined"
+          v-model="usuario.password"
+          @click:append-inner="visible = !visible"
+        ></v-text-field>
+
+        <v-btn
+          class="mb-8"
+          color="blue"
+          size="large"
+          variant="tonal"
+          block
+          v-model="enviarL"
+        >
+          Ingresar
+        </v-btn>
+        <v-card class="mb-12" color="surface-variant" variant="tonal">
+          <v-card-text class="text-medium-emphasis text-caption">
+            Copyright © 2025 STEELPRO V3.5.10 - Todos los derechos reservados Aviso de
+            privacidad. Términos y condiciones
           </v-card-text>
         </v-card>
-        <center>
-          <v-btn
-            style="
-              background-color: rgb(0 0 0);
-              color: white;
-              margin-top: -15px;
-              width: 50%;
-            "
-            cols="12"
-            sm="6"
-            md="4"
-            @click="enviarL"
-          >
-            Ingresar
-          </v-btn>
-        </center>
-      </v-col>
-    </v-row>
->>>>>>>>> Temporary merge branch 2
-
-      <v-text-field
-        density="compact"
-        placeholder="Usuario"
-        prepend-inner-icon="mdi-account"
-        variant="outlined"
-        v-model="usuario.username"
-      ></v-text-field>
-
-      <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
-        Contraseña
-
-      </div>
-
-      <v-text-field 
-        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
-        :type="visible ? 'text' : 'password'"
-        density="compact"
-        placeholder="Contraseña"
-        prepend-inner-icon="mdi-lock-outline"
-        variant="outlined"
-          v-model="usuario.password"
-        @click:append-inner="visible = !visible"
-      ></v-text-field>
-
-    
-
-      <v-btn
-        class="mb-8"
-        color="blue"
-        size="large"
-        variant="tonal"
-        block
-        v-model="enviarL"
-      >
-        Ingresar
-      </v-btn>
-      <v-card
-        class="mb-12"
-        color="surface-variant"
-        variant="tonal"
-      >
-        <v-card-text class="text-medium-emphasis text-caption">
-          Copyright © 2025 STEELPRO V3.5.10 - Todos los derechos reservados Aviso de privacidad. Términos y condiciones
-        </v-card-text>
       </v-card>
-    </v-card>
-  </div>
+    </div>
+  </v-app>
 </template>
 <script>
 import { useAuthStore } from "~/stores/auth";
