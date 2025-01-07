@@ -12,7 +12,7 @@
       max-width="448"
       rounded="lg"
     >
-      <div class="text-subtitle-1 text-medium-emphasis">Usuario</div>
+      <div class="text-subtitle-1 text-medium-emphasis">Usuario :D</div>
 
       <v-text-field
         density="compact"
