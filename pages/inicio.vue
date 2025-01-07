@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="12">
-          <h1>Nombre cambiamos el nombre R: {{ userStore.nombre }}</h1>
+          <h1>Nombre: {{ userStore.nombre }}</h1>
         </v-col>
 
         <v-col cols="12" md="12">
