@@ -43,8 +43,6 @@
       </v-card>
     </v-dialog>
     <v-row
-      justify="center"
-      align="right"
       cols="6"
       sm="6"
       md="6"
@@ -53,19 +51,6 @@
       style="position: relative; top: 15%; left: 27%"
     >
       <v-col style="max-width: 40%">
-        <!-- <center>
-          <v-icon
-            style="
-              font-size: 100px;
-              background: #ffffff;
-              border-radius: 50px;
-              color: black;
-              margin-bottom: -35px;
-              z-index: 1;
-            "
-            >mdi-account
-          </v-icon>
-        </center> -->
         <center>
           <img
             :width="150"
@@ -75,7 +60,7 @@
             :src="logosteel"
           />
         </center>
-        <v-card style="">
+        <v-card style="background-color: rgb(0 0 0)">
           <v-card-text
             style="
               background: rgba(0, 0, 0, 0.64);
@@ -109,7 +94,7 @@
         <center>
           <v-btn
             style="
-              background-color: rgb(1 15 23);
+              background-color: rgb(0 0 0);
               color: white;
               margin-top: -15px;
               width: 50%;
@@ -124,14 +109,55 @@
         </center>
       </v-col>
     </v-row>
+>>>>>>>>> Temporary merge branch 2
 
-    <v-footer app style="background-color: black; text-align: center; color: white">
-      <h5 style="text-align: center">
-        Copyright © 2024 STEELPRO V2.0.0 - Todos los derechos reservados Aviso de
-        privacidad. Términos y condiciones
-      </h5>
-    </v-footer>
-  </v-app>
+      <v-text-field
+        density="compact"
+        placeholder="Usuario"
+        prepend-inner-icon="mdi-account"
+        variant="outlined"
+        v-model="usuario.username"
+      ></v-text-field>
+
+      <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
+        Contraseña
+
+      </div>
+
+      <v-text-field 
+        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+        :type="visible ? 'text' : 'password'"
+        density="compact"
+        placeholder="Contraseña"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+          v-model="usuario.password"
+        @click:append-inner="visible = !visible"
+      ></v-text-field>
+
+    
+
+      <v-btn
+        class="mb-8"
+        color="blue"
+        size="large"
+        variant="tonal"
+        block
+        v-model="enviarL"
+      >
+        Ingresar
+      </v-btn>
+      <v-card
+        class="mb-12"
+        color="surface-variant"
+        variant="tonal"
+      >
+        <v-card-text class="text-medium-emphasis text-caption">
+          Copyright © 2025 STEELPRO V3.5.10 - Todos los derechos reservados Aviso de privacidad. Términos y condiciones
+        </v-card-text>
+      </v-card>
+    </v-card>
+  </div>
 </template>
 <script>
 import { useAuthStore } from "~/stores/auth";
