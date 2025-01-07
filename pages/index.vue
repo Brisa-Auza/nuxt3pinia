@@ -1,7 +1,7 @@
 <template>
   <v-app
     style="
-      background: url('/fondo5.PNG') no-repeat;
+      background: url('/fondo3.jpg') no-repeat;
       background-size: cover;
       overflow: hidden;
       width: 100%;
@@ -43,6 +43,8 @@
       </v-card>
     </v-dialog>
     <v-row
+      justify="center"
+      align="right"
       cols="6"
       sm="6"
       md="6"
@@ -51,6 +53,19 @@
       style="position: relative; top: 15%; left: 27%"
     >
       <v-col style="max-width: 40%">
+        <!-- <center>
+          <v-icon
+            style="
+              font-size: 100px;
+              background: #ffffff;
+              border-radius: 50px;
+              color: black;
+              margin-bottom: -35px;
+              z-index: 1;
+            "
+            >mdi-account
+          </v-icon>
+        </center> -->
         <center>
           <img
             :width="150"
@@ -60,7 +75,7 @@
             :src="logosteel"
           />
         </center>
-        <v-card style="background-color: rgb(0 0 0)">
+        <v-card style="">
           <v-card-text
             style="
               background: rgba(0, 0, 0, 0.64);
@@ -94,7 +109,7 @@
         <center>
           <v-btn
             style="
-              background-color: rgb(0 0 0);
+              background-color: rgb(1 15 23);
               color: white;
               margin-top: -15px;
               width: 50%;
