@@ -47,7 +47,7 @@
           size="large"
           variant="tonal"
           block
-          v-model="enviarL"
+          @click="enviarL"
         >
           Ingresar
         </v-btn>
@@ -95,7 +95,7 @@ export default {
         return false;
       } else {
         this.carga = true;
-        const res = await fetch("https://steelpro.ddns.net:3002/Login", {
+        const res = await fetch("https://192.168.1.115:3002/Login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

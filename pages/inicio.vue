@@ -7,10 +7,10 @@
         </v-col>
 
         <v-col cols="12" md="12">
-          <v-card>
+          <v-card :style="{ border: `2px solid ${colorStore.cardColor}`}" class="pa-4">
             <v-card-title>VER TICKETS</v-card-title>
             <v-card class="v-sheet theme--dark">
-              <a href="/tickets/vertickets">
+              <a href="/vertickets">
                 <h4 class="modulo">Tikets</h4>
               </a>
             </v-card>
@@ -22,10 +22,17 @@
 </template>
 
 <script setup>
+import { useColorStore } from '~/stores/colorStore';
 import { useUserStore } from "~/stores/user";
+const colorStore = useColorStore();
+
 definePageMeta({
   layout: "barra",
-  middleware: 'auth',
+});
+
+
+onMounted(() => {
+  colorStore.loadCardColor();
 });
 
 const userStore = useUserStore();
